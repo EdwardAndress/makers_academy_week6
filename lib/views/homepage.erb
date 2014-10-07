@@ -1,0 +1,21 @@
+<h1>Welcome to Bookmark Manager</h1>
+
+<section id='new-link'>
+  <form action='/links' method='post'>
+    Url: <input type='text' name='url'>
+    Title: <input type='text' name='title'>
+    <input type='submit' value='Add link'>
+  </form>
+</section>
+
+<h3>Current links:</h3>
+
+<% if @links.any? %>
+  <ul>
+    <% @links.each do |link| %>
+      <li><a href="<% link.url %>"><%= link.title %></a></li> 
+    <%end%>
+  </ul>
+<% else %>
+  <h4>Get out there and find some cool pictures of cats or something dude!</h4>
+<% end %>
