@@ -4,6 +4,7 @@
   <form action='/links' method='post'>
     Url: <input type='text' name='url'>
     Title: <input type='text' name='title'>
+    Tags: <input type='text' name='tags'>
     <input type='submit' value='Add link'>
   </form>
 </section>
@@ -11,9 +12,18 @@
 <h3>Current links:</h3>
 
 <% if @links.any? %>
-  <ul>
+  <ul id='links-list'>
     <% @links.each do |link| %>
-      <li><a href="<% link.url %>"><%= link.title %></a></li> 
+      <li id='link'>
+        <a href="<% link.url %>"><%= link.title %></a>
+        <% if link.tags.any? %>
+          <% link.tags.each do |tag| %>
+            <ul id='tags-list'>
+              <li id='tag'><%= tag.text %></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </li> 
     <%end%>
   </ul>
 <% else %>
