@@ -36,7 +36,21 @@ feature 'Users can do different things depending on whether they are logged in o
 		expect(page).to have_content 'Sign up'
 	end
 
-	def sign_up(username, email, password)
+	scenario 'a registered user can sign in' do
+		visit '/'
+		sign_up
+		click_button 'Sign out'
+		expect(User.count).to eq 1
+		expect(page).to have_css('#sign_in')
+		within('#sign_in') do
+			fill_in 'email', with: 'eddie_andress@hotmail.com'
+			fill_in 'password', with: '12345678'
+			click_button 'Sign in'
+		end
+		expect(page).to have_content 'Hello Eddie'
+	end
+
+	def sign_up(username = 'Eddie', email = 'eddie_andress@hotmail.com', password = '12345678')
 		visit '/'
 		click_link 'Sign up'
 		within('#new-user') do

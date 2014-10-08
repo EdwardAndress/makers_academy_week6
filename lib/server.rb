@@ -41,7 +41,15 @@ set :session_secret, 'super secret'
   	redirect '/'
   end
 
-  post '/current_user/sign_out' do
+  post "/sessions/new" do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:current_user_id] = user.id
+      redirect '/'
+    end
+  end
+
+  post '/sessions/delete' do
     session[:current_user_id] =  nil
     redirect '/'
   end
