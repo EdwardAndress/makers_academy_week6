@@ -15,6 +15,27 @@ feature 'Users can do different things depending on whether they are logged in o
 		expect(page).to have_content 'Hello Eddie'
 	end
 
+	scenario 'when logged in the user should not see a link to sign up' do
+		visit '/'
+		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
+		expect(page).not_to have_content 'Sign up'
+	end
+
+	scenario 'a logged in user can see a link to sign out' do
+		visit '/'
+		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
+		expect(page).to have_content('Hello Eddie')
+		expect(page).to have_css('#sign_out')
+	end
+
+	scenario 'a logged in user can sign out' do 
+		visit '/'
+		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
+		expect(page).to have_css('#sign_out')
+		click_button 'Sign out'
+		expect(page).to have_content 'Sign up'
+	end
+
 	def sign_up(username, email, password)
 		visit '/'
 		click_link 'Sign up'

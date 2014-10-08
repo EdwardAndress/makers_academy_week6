@@ -1,9 +1,14 @@
 <header>
   <% if current_user %>
-    <h1>Hello <%= @current_user.username %></h1>
+    <h1>Hello <%= current_user.username %></h1>
+    <form id="sign_out" method="post" action="/current_user/sign_out">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
+  <% else %>
+    <a href="/users/new" method="get">Sign up</a>
   <% end %>
   <h1>Welcome to Bookmark Manager</h1>
-  <a href="/users/new" method="get">Sign up</a>
 </header>
 
 <section id='new-link'>

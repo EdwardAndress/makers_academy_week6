@@ -34,11 +34,16 @@ set :session_secret, 'super secret'
   end
 
   post '/users/new' do
-  	current_user = User.create( username:	params[:username],
+  	user = User.create( username:	params[:username],
   						                  email: 		params[:email],
   						                  password: params[:password])
-    session[:current_user_id] = current_user.id
+    session[:current_user_id] = user.id
   	redirect '/'
+  end
+
+  post '/current_user/sign_out' do
+    session[:current_user_id] =  nil
+    redirect '/'
   end
 
   helpers do
@@ -46,7 +51,7 @@ set :session_secret, 'super secret'
     def current_user
       @current_user ||= User.get(session[:current_user_id]) if session[:current_user_id]
     end
-    
+
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
