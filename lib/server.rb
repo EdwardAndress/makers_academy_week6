@@ -13,6 +13,9 @@ DataMapper.auto_upgrade!
 
 class BookmarkManager < Sinatra::Base
 
+enable :sessions
+set :session_secret, 'super secret'
+
   get '/' do
   	@links = Link.all
     erb :homepage
@@ -26,6 +29,25 @@ class BookmarkManager < Sinatra::Base
   	redirect '/'
   end
 
+  get '/users/new' do
+  	erb :new_user
+  end
+
+  post '/users/new' do
+  	current_user = User.create( username:	params[:username],
+  						                  email: 		params[:email],
+  						                  password: params[:password])
+    session[:current_user_id] = current_user.id
+  	redirect '/'
+  end
+
+  helpers do
+
+    def current_user
+      @current_user ||= User.get(session[:current_user_id]) if session[:current_user_id]
+    end
+    
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
