@@ -27,6 +27,9 @@
 <h3>Current links:</h3>
 
 <% if @links.any? %>
+<form id="filter" action='/tags/:text' method='get'>
+  Filter by: <input type='text' name='filter'><input type='submit' value='Submit'>
+</form>
   <ul id='links-list'>
     <% @links.each do |link| %>
       <li id='link'>

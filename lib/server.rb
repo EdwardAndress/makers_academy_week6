@@ -29,6 +29,12 @@ set :session_secret, 'super secret'
   	redirect '/'
   end
 
+  get '/tags/:text' do
+    tag = Tag.first(text: params[:filter])
+    @links = tag ? tag.links : [] # if the tag exists, list of links associated with that tag, otherwise an empty array
+    erb :homepage #this time render the page rather than redirect otherwise the @links assignment is remade
+  end
+
   get '/users/new' do
   	erb :new_user
   end
@@ -36,7 +42,8 @@ set :session_secret, 'super secret'
   post '/users/new' do
   	user = User.create( username:	params[:username],
   						                  email: 		params[:email],
-  						                  password: params[:password])
+  						                  password: params[:password],
+                                password_confirmation: params[:password_confirmation])
     session[:current_user_id] = user.id
   	redirect '/'
   end
