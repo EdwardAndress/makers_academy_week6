@@ -52,7 +52,7 @@ set :session_secret, 'super secret'
       session[:current_user_id] = @user.id
     	redirect '/'
     else
-      flash[:notice] = 'Sorry, your password does not match the confirmation'
+      flash.now[:errors] = @user.errors.full_messages
       erb :new_user
     end
   end

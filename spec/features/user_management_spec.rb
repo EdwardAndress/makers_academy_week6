@@ -19,9 +19,24 @@ feature 'Users can do different things depending on whether they are logged in o
 		expect(current_path).to eq '/users/new'
 	end
 
-	scenario '' do
+	scenario 'a message should be displayed to describe the input error when password does not match password confirmation' do
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678', '1234')
-		expect(page).to have_content 'Sorry, your password does not match the confirmation'
+		expect(page).to have_content 'Password does not match the confirmation'
+	end
+
+	scenario 'a user cannot sign up with an email address that already corresponds to another user in the db' do 
+		visit '/'
+		expect{ sign_up }.to change(User, :count).by 1
+		click_button 'Sign out'
+		expect{ sign_up }.to change(User, :count).by 0
+	end
+
+	scenario 'a message should be displayed when a user tries to sign up with an email address that already corresponds to another user in the db' do 
+		visit '/'
+		sign_up
+		click_button 'Sign out'
+		sign_up
+		expect(page).to have_content 'That email address is already associated with an existing Bookmark Manager account'
 	end
 
 	scenario 'as part of the sign up process the user is automatically logged in and sees a relevant greeting on their homepage' do 

@@ -6,13 +6,14 @@ class User
 
 	property :id, Serial
 	property :username, String
-	property :email, String
+	property :email, String, unique: true, message: 'That email address is already associated with an existing Bookmark Manager account'
 	property :password_digest, Text
 
 	attr_reader :password
 	attr_accessor :password_confirmation
 
 	validates_confirmation_of :password
+	validates_uniqueness_of :email
 
 	has n, :links, through: Resource
 

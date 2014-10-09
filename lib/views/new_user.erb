@@ -6,6 +6,10 @@
 							<input type="submit" 	value="Submit">
 </form>
 
-<% if flash[:notice] %>
-	<section id='flash_notice'><%= flash[:notice] %></section>
+<% if flash[:errors] && !flash[:errors].empty? %>
+	<ul id='flash_errors'>
+		<% flash[:errors].each do |error| %>
+		<li><%= error %></li>
+		<% end %>
+	</ul>
 <% end %>
