@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'dm-postgres-adapter'
 require 'rack-flash'
 
 
@@ -9,6 +10,8 @@ DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 require './lib/link'
 require './lib/tag'
 require './lib/user'
+
+require_relative 'data_mapper_setup'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
