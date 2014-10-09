@@ -14,6 +14,16 @@ feature 'Users can do different things depending on whether they are logged in o
 		expect{ sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678', '1234') }.to change(User, :count).by 0
 	end
 
+	scenario 'the user should be redirected back to the sign up page if they make an input error when confirming the password' do
+		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678', '1234')
+		expect(current_path).to eq '/users/new'
+	end
+
+	scenario '' do
+		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678', '1234')
+		expect(page).to have_content 'Sorry, your password does not match the confirmation'
+	end
+
 	scenario 'as part of the sign up process the user is automatically logged in and sees a relevant greeting on their homepage' do 
 		visit '/'
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')

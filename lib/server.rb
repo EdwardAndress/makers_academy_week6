@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'rack-flash'
+
 
 env = ENV["Rack_ENV"] || "development"
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
@@ -13,6 +15,7 @@ DataMapper.auto_upgrade!
 
 class BookmarkManager < Sinatra::Base
 
+use Rack::Flash #must make this declaration in order to use flash notices
 enable :sessions
 set :session_secret, 'super secret'
 
@@ -36,16 +39,22 @@ set :session_secret, 'super secret'
   end
 
   get '/users/new' do
+    @user = User.new
   	erb :new_user
   end
 
   post '/users/new' do
-  	user = User.create( username:	params[:username],
+  	@user = User.new( username:	params[:username],
   						                  email: 		params[:email],
   						                  password: params[:password],
                                 password_confirmation: params[:password_confirmation])
-    session[:current_user_id] = user.id
-  	redirect '/'
+    if @user.save #the user will only be saved if the validations in place all pass
+      session[:current_user_id] = @user.id
+    	redirect '/'
+    else
+      flash[:notice] = 'Sorry, your password does not match the confirmation'
+      erb :new_user
+    end
   end
 
   post "/sessions/new" do
