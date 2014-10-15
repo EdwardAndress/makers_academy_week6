@@ -3,14 +3,14 @@
 
 ####Specification:
  * Create a website that will store collections of useful links
- * Implemented features
-  * Users can sign up, sign in, and sign out
-  * Users can add links to their collection
-  * Users can add tags to links
-  * Links can be filtered using tags
- * In progress
-  * Users can reset their password
-  * Make it look nice!
+  * Implemented features
+    * Users can sign up, sign in, and sign out
+    * Users can add links to their collection
+    * Users can add tags to links
+    * Links can be filtered using tags
+  * In progress
+    * Users can reset their password
+    * Make it look nice!
 
 ####Skills / lessons learnt:
  * Integration testing with Capybara and Cucumber
