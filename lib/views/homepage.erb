@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/sylesheets/reset.css">  
+  <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">  
+  <title>Bookmark manager</title>
+</head>
+<body>
 <header>
+  <h1>Welcome to Bookmark Manager</h1>
   <% if current_user %>
-    <h1>Hello <%= current_user.username %></h1>
+    <h1>You are signed in as <%= current_user.username %></h1>
     <form id="sign_out" method="post" action="/sessions/delete">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Sign out">
@@ -12,7 +21,6 @@
       Password: <input type="password" name="password">
       <input type="submit" value="Sign in">
   <% end %>
-  <h1>Welcome to Bookmark Manager</h1>
 </header>
 
 <section id='new-link'>
@@ -47,3 +55,5 @@
 <% else %>
   <h4>Get out there and find some cool pictures of cats or something dude!</h4>
 <% end %>
+</body>
+</html>
