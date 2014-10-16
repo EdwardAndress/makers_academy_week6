@@ -17,3 +17,8 @@ header h1 {
 	margin-right: 2%;
 	float: right;
 }
+
+#new-link {
+	position: relative;
+	margin-top: 3%;
+}
