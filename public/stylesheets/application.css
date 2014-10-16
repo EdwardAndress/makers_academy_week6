@@ -1,3 +1,15 @@
-body {
-	background-color: grey;
+header {
+	padding-bottom: 10px;
+}
+
+header a {
+	position: relative;
+	margin-right: 5%;
+	float: right;
+}
+
+#sign_in {
+	position: relative;
+	margin-right: 2%;
+	float: right;
 }
