@@ -1,11 +1,15 @@
 header {
-	padding-bottom: 10px;
+	padding: 10px;
 }
 
 header a {
 	position: relative;
 	margin-right: 5%;
 	float: right;
+}
+
+header h1 {
+	float: left;
 }
 
 #sign_in {
