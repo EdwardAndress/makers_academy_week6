@@ -1,5 +1,6 @@
 header {
 	padding: 10px;
+	background-color: lightgrey;
 }
 
 header a {
@@ -21,4 +22,5 @@ header h1 {
 #new-link {
 	position: relative;
 	margin-top: 3%;
+	padding: 5px;
 }
