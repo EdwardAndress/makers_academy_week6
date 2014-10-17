@@ -15,12 +15,15 @@
       <input type="submit" value="Sign out">
     </form>
   <% else %>
-    <a href="/users/new" method="get"><button type="button">Sign up</button></a>
+  <section id="sign-in-up">
+    <a href="/users/new" method="get"><button type="button">SIGN UP</button></a>
     <form id="sign_in" action="sessions/new" method="post">
       <input type="text" name="email" placeholder="email address">
       <input type="password" name="password" placeholder="password">
-      <input type="submit" value="Sign in">
+      <input type="submit"  id="sign_in_submit" value="SIGN IN">
+    </form>
   <% end %>
+</section>
 </header>
 
 <section id='new-link'>

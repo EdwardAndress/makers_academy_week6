@@ -6,9 +6,9 @@ header {
 
 header a {
 	position: relative;
-	margin-top: 4px;
-	margin-right: 5%;
+	top: 4px;
 	float: right;
+	padding: 5px;
 }
 
 #page-title {
@@ -18,14 +18,14 @@ header a {
 
 #sign_in {
 	position: relative;
-	margin-top: 3.5px;
-	margin-right: 2%;
+	top: 3.4px;
 	float: right;
+	padding: 5px;
 }
 
 #new-link {
 	position: relative;
-	margin-top: 5px;
+	top: 5px;
 	padding: 5px;
 	float: left;
 }
@@ -33,7 +33,7 @@ header a {
 #filter {
 	float: right;
 	position: relative;
-	margin-top: 5px;
+	top: 5px;
 	padding: 5px;
 }
 
@@ -43,8 +43,8 @@ header a {
 
 #links-list {
 	position: relative;
-	margin-top: 5%;
-	margin-left: 2%;
+	top: 5%;
+	left: 2%;
 }
 
 #link {
