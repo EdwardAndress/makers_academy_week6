@@ -32,12 +32,13 @@
   </form>
 </section>
 
-<h3>Current links:</h3>
-
-<% if @links.any? %>
 <form id="filter" action='/tags/:text' method='get'>
   Filter by: <input type='text' name='filter'><input type='submit' value='Submit'>
 </form>
+
+</section id="current links">
+<h3>Current links:</h3>
+<% if @links.any? %>
   <ul id='links-list'>
     <% @links.each do |link| %>
       <li id='link'>
@@ -54,6 +55,7 @@
   </ul>
 <% else %>
   <h4>Get out there and find some cool pictures of cats or something dude!</h4>
+</section>
 <% end %>
 </body>
 </html>
