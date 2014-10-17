@@ -6,6 +6,7 @@
   <title>Bookmark manager</title>
 </head>
 <body>
+
 <header>
   <h1 id="page-title">Welcome to Bookmark Manager</h1>
   <% if current_user %>
@@ -26,39 +27,39 @@
 </section>
 </header>
 
-<section id='new-link'>
-  <form action='/links' method='post'>
-    <input type='text' name='url' placeholder="Url">
-    <input type='text' name='title' placeholder="Title">
-    <input type='text' name='tags' placeholder="Tags">
-    <input type='submit' value='Add link'>
+<section id="links-management">
+    <form id="new-link" action='/links' method='post'>
+      <input type='text' name='url' placeholder="Url">
+      <input type='text' name='title' placeholder="Title">
+      <input type='text' name='tags' placeholder="Tags">
+      <input type='submit' value='Add link'>
+    </form>
+
+  <form id="filter" action='/tags/:text' method='get'>
+    <input type='text' name='filter' placeholder="Filter current links"><input type='submit' value='Submit'>
   </form>
 </section>
 
-<form id="filter" action='/tags/:text' method='get'>
-  <input type='text' name='filter' placeholder="Filter current links"><input type='submit' value='Submit'>
-</form>
+<article id="current-links">
+  <% if @links.any? %>
+    <ul id='links-list'>
+      <% @links.each do |link| %>
+        <li id='link-container'>
+          <section id="link">
+            <a href="<% link.url %>"><%= link.title %></a>
+            <% if link.tags.any? %>
+              <% link.tags.each do |tag| %>
+                  <a href="#" id='tag'><%= tag.text %></a>
+              <% end %>
+            <% end %>
+          </section>
+        </li> 
+      <%end%>
+    </ul>
+  <% else %>
+    <h4>Get out there and find some cool pictures of cats or something dude!</h4>
+</article>
 
-</section id="current-links">
-<% if @links.any? %>
-  <ul id='links-list'>
-    <h3 id="links-list-title">Current links:</h3>
-    <% @links.each do |link| %>
-      <li id='link'>
-        <a href="<% link.url %>"><%= link.title %></a>
-        <% if link.tags.any? %>
-          <% link.tags.each do |tag| %>
-            <ul id='tags-list'>
-              <li id='tag'><%= tag.text %></li>
-            </ul>
-          <% end %>
-        <% end %>
-      </li> 
-    <%end%>
-  </ul>
-<% else %>
-  <h4>Get out there and find some cool pictures of cats or something dude!</h4>
-</section>
 <% end %>
 </body>
 </html>

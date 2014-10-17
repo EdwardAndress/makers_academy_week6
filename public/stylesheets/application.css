@@ -1,7 +1,8 @@
 header {
 	padding: 10px;
-	background-color: lightgrey;
+	background-color: black;
 	height: 25px;
+
 }
 
 header a {
@@ -14,6 +15,8 @@ header a {
 #page-title {
 	float: left;
 	font-size: 25px;
+	color: white;
+	font-family: futura;
 }
 
 #sign_in {
@@ -23,30 +26,40 @@ header a {
 	padding: 5px;
 }
 
-#new-link {
-	position: relative;
-	top: 5px;
+#links-management {
 	padding: 5px;
+}
+
+#new-link {
 	float: left;
+	padding: 5px;
 }
 
 #filter {
-	float: right;
-	position: relative;
-	top: 5px;
-	padding: 5px;
-}
-
-#links-list-title {
 	padding: 5px;
 }
 
 #links-list {
+}
+
+#link-container {
+	padding: 10px;
+	height: 50px;
+	border: solid lightgrey 1px;
+	border-radius: 5px;
+	margin: 10px;
+}
+
+#link-container img {
+	height: 100px;
 	position: relative;
-	top: 5%;
-	left: 2%;
+	float: left;
 }
 
 #link {
-	padding: 5px;
+	float: left;
+}
+
+#tag {
+	text-decoration: none;
 }
