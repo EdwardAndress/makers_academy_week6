@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-  <h1>Welcome to Bookmark Manager</h1>
+  <h1 id="page-title">Welcome to Bookmark Manager</h1>
   <% if current_user %>
     <h1>You are signed in as <%= current_user.username %></h1>
     <form id="sign_out" method="post" action="/sessions/delete">
@@ -17,29 +17,29 @@
   <% else %>
     <a href="/users/new" method="get"><button type="button">Sign up</button></a>
     <form id="sign_in" action="sessions/new" method="post">
-      Email: <input type="text" name="email">
-      Password: <input type="password" name="password">
+      <input type="text" name="email" placeholder="email address">
+      <input type="password" name="password" placeholder="password">
       <input type="submit" value="Sign in">
   <% end %>
 </header>
 
 <section id='new-link'>
   <form action='/links' method='post'>
-    Url: <input type='text' name='url'>
-    Title: <input type='text' name='title'>
-    Tags: <input type='text' name='tags'>
+    <input type='text' name='url' placeholder="Url">
+    <input type='text' name='title' placeholder="Title">
+    <input type='text' name='tags' placeholder="Tags">
     <input type='submit' value='Add link'>
   </form>
 </section>
 
 <form id="filter" action='/tags/:text' method='get'>
-  Filter by: <input type='text' name='filter'><input type='submit' value='Submit'>
+  <input type='text' name='filter' placeholder="Filter current links"><input type='submit' value='Submit'>
 </form>
 
-</section id="current links">
-<h3>Current links:</h3>
+</section id="current-links">
 <% if @links.any? %>
   <ul id='links-list'>
+    <h3 id="links-list-title">Current links:</h3>
     <% @links.each do |link| %>
       <li id='link'>
         <a href="<% link.url %>"><%= link.title %></a>
