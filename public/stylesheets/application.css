@@ -2,7 +2,8 @@ header {
 	padding: 10px;
 	background-color: black;
 	height: 25px;
-
+	border-bottom: solid white 2px;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 header a {
@@ -26,7 +27,16 @@ header a {
 	padding: 5px;
 }
 
+#nav {
+	float: left;
+	width: 200px;
+	height: 600px;
+	background-color: black;
+}
+
 #links-management {
+	margin-top: 10px;
+	margin-left: 10px;
 	padding: 5px;
 }
 
@@ -43,18 +53,15 @@ header a {
 }
 
 #link-container {
+	float: left;
 	padding: 10px;
 	height: 50px;
 	border: solid lightgrey 1px;
 	border-radius: 5px;
 	margin: 10px;
+	background-image: url("/version2/public/assets/bookmark-icon.png");
 }
 
-#link-container img {
-	height: 100px;
-	position: relative;
-	float: left;
-}
 
 #link {
 	float: left;
