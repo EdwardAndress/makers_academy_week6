@@ -51,28 +51,31 @@
   </form>
 </section>
 
-<article id="current-links">
   <% if @links.any? %>
     <ul id='links-list'>
       <% @links.each do |link| %>
+
         <li id='link-container'>
+
           <section id="link">
-            <a id="link-title" href="<% link.url %>"><%= link.title %></a>
+            <div id="bookmark-ribbon">
+              <a id="link-title" href="<% link.url %>"><%= link.title %></a>
+            </div>
+          </section>
+
+          <section id='tags'>
             <% if link.tags.any? %>
               <% link.tags.each do |tag| %>
                   <a href="#" id='tag'><%= tag.text %></a>
               <% end %>
             <% end %>
-            <div id="bookmark-ribbon">
-            </div>
           </section>
 
         </li> 
-      <%end%>
+      <% end %>
     </ul>
   <% else %>
     <h4>Get out there and find some cool pictures of cats or something dude!</h4>
-</article>
 
 <% end %>
 </body>

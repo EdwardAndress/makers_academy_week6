@@ -94,15 +94,17 @@ body {
 
 #bookmark-ribbon { 
 	  position: relative;
-	  top: -1.8em;
-	  left: 6em;
+	  top: -1em;
+	  left: -2em;
 	  width: 0; 
 	  height: 55px; 
-	  border-left: 50px solid green; 
-	  border-right: 50px solid lightgreen; 
+	  border-left: 50px solid darkgrey; 
+	  border-right: 50px solid grey; 
 	  border-bottom: 30px solid transparent; 
 	  border-radius: 5px;
-	} 
+	  z-index: 3;
+	  float: left;
+	}
 
 
 #link {
@@ -114,7 +116,14 @@ body {
 }
 
 #link-title {
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	position: relative;
+	left: -1.5em;
+	top: 0.5em;
 	float: left;
+	z-index: 5;
 }
 
 #tag {
