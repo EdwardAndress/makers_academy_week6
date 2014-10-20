@@ -3,7 +3,7 @@ header {
 	background-color: black;
 	height: 25px;
 	border-bottom: solid white 2px;
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: 10px 10px 5px black;
 }
 
 header a {
@@ -11,6 +11,12 @@ header a {
 	top: 4px;
 	float: right;
 	padding: 5px;
+}
+
+body {
+	background-image: url("../assets/library.jpg");
+	background-repeat: no-repeat;
+	background-size: 1000px auto;
 }
 
 #page-title {
@@ -38,7 +44,7 @@ header a {
 	float: right;
 	width: 300px;
 	height: 600px;
-	background-color: darkgrey;
+	background-color: black;
 }
 
 #nav-link-container {
@@ -60,7 +66,8 @@ header a {
 	position: relative;
 	left: 2%;
 	top: 10px;
-	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 
 #new-link {
@@ -81,10 +88,13 @@ header a {
 	border: solid lightgrey 1px;
 	border-radius: 5px;
 	margin: 10px;
+	background-color: lightgrey;
+	opacity: 0.8;
 }
 
 
 #link {
+	opacity: 1.0;
 	position: relative;
 	left: -15%;
 	width: 300px;
