@@ -87,10 +87,22 @@ body {
 	width: 600px;
 	border: solid lightgrey 1px;
 	border-radius: 5px;
-	margin: 10px;
+	margin: 20px;
 	background-color: lightgrey;
 	opacity: 0.8;
 }
+
+#bookmark-ribbon { 
+	  position: relative;
+	  top: -1.8em;
+	  left: 6em;
+	  width: 0; 
+	  height: 55px; 
+	  border-left: 50px solid green; 
+	  border-right: 50px solid lightgreen; 
+	  border-bottom: 30px solid transparent; 
+	  border-radius: 5px;
+	} 
 
 
 #link {
@@ -99,6 +111,10 @@ body {
 	left: -15%;
 	width: 300px;
 	text-align: left;
+}
+
+#link-title {
+	float: left;
 }
 
 #tag {

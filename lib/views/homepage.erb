@@ -57,13 +57,16 @@
       <% @links.each do |link| %>
         <li id='link-container'>
           <section id="link">
-            <a href="<% link.url %>"><%= link.title %></a>
+            <a id="link-title" href="<% link.url %>"><%= link.title %></a>
             <% if link.tags.any? %>
               <% link.tags.each do |tag| %>
                   <a href="#" id='tag'><%= tag.text %></a>
               <% end %>
             <% end %>
+            <div id="bookmark-ribbon">
+            </div>
           </section>
+
         </li> 
       <%end%>
     </ul>
