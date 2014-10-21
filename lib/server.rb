@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'rack-flash'
+require 'sinatra/partial'
 
 
 env = ENV["Rack_ENV"] || "development"
@@ -21,6 +22,7 @@ class BookmarkManager < Sinatra::Base
 use Rack::Flash #must make this declaration in order to use flash notices
 enable :sessions
 set :session_secret, 'super secret'
+set :partial_template_engine, :erb
 
   get '/' do
   	@links = Link.all
