@@ -70,6 +70,13 @@ body {
 	padding-bottom: 20px;
 }
 
+#no-links {
+	color: red;
+	position: relative;
+	left: 5%;
+	font-size: 20px;
+}
+
 #new-link {
 	float: left;
 	padding: 5px;
