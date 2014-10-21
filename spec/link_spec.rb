@@ -7,13 +7,15 @@ describe Link do
 			it 'be stored in the db' do 
 				expect(Link.count).to eq 0
 				Link.create(title: "my photos",
-							url: "http://andressedward.tumblr.com")
+							url: "http://andressedward.tumblr.com",
+							user_id: 1)
 				expect(Link.count).to eq 1
 			end
 
 			it 'be recalled from the db' do
 				Link.create(title: "my photos",
-							url: "http://andressedward.tumblr.com")
+							url: "http://andressedward.tumblr.com",
+							user_id: 1)
 				expect(Link.count).to eq 1
 
 				link = Link.first

@@ -80,16 +80,5 @@ feature 'Users can do different things depending on whether they are logged in o
 		expect(page).to have_content 'You are signed in as Eddie'
 	end
 
-	def sign_up(username = 'Eddie', email = 'eddie_andress@hotmail.com', password = '12345678', password_confirmation = '12345678')
-		visit '/'
-		click_link 'SIGN UP'
-		within('#new-user') do
-			fill_in 'username', with: username
-			fill_in 'email', with: email
-			fill_in 'password', with: password
-			fill_in 'password_confirmation', with: password_confirmation
-			click_button 'Submit'
-		end
-	end
 
 end

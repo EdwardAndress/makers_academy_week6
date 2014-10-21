@@ -33,7 +33,7 @@ set :partial_template_engine, :erb
   	tags = params["tags"].split(",").map do |tag|
   		Tag.first_or_create(text: tag)
   	end
-  	Link.create(url: params[:url], title: params[:title], tags: tags)
+  	Link.create(url: params[:url], title: params[:title], tags: tags, user_id: session[:current_user_id])
   	redirect '/'
   end
 
