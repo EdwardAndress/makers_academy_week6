@@ -33,6 +33,10 @@
             <% end %>
           </section>
 
+          <section id="posted-by">
+            Posted by <%= (User.get(link.user_id)).username %>
+          </section>
+
         </li> 
       <% end %>
     </ul>

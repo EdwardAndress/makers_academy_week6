@@ -24,4 +24,9 @@ end
 		expect(page).not_to have_content 'Google'
 	end
 
+	scenario 'and see who posted them' do 
+		visit '/'
+		expect(page).to have_content "Posted by Eddie"
+	end
+
 end
