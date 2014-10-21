@@ -42,19 +42,19 @@ feature 'Users can do different things depending on whether they are logged in o
 	scenario 'as part of the sign up process the user is automatically logged in and sees a relevant greeting on their homepage' do 
 		visit '/'
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
-		expect(page).to have_content 'Hello Eddie'
+		expect(page).to have_content 'You are signed in as Eddie'
 	end
 
 	scenario 'when logged in the user should not see a link to sign up' do
 		visit '/'
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
-		expect(page).not_to have_content 'Sign up'
+		expect(page).not_to have_content 'SIGN UP'
 	end
 
 	scenario 'a logged in user can see a link to sign out' do
 		visit '/'
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
-		expect(page).to have_content('Hello Eddie')
+		expect(page).to have_content('You are signed in as Eddie')
 		expect(page).to have_css('#sign_out')
 	end
 
@@ -63,7 +63,7 @@ feature 'Users can do different things depending on whether they are logged in o
 		sign_up('Eddie', 'eddie_andress@hotmail.com', '12345678')
 		expect(page).to have_css('#sign_out')
 		click_button 'Sign out'
-		expect(page).to have_content 'Sign up'
+		expect(page).to have_content 'SIGN UP'
 	end
 
 	scenario 'a registered user can sign in' do
@@ -75,14 +75,14 @@ feature 'Users can do different things depending on whether they are logged in o
 		within('#sign_in') do
 			fill_in 'email', with: 'eddie_andress@hotmail.com'
 			fill_in 'password', with: '12345678'
-			click_button 'Sign in'
+			click_button 'SIGN IN'
 		end
-		expect(page).to have_content 'Hello Eddie'
+		expect(page).to have_content 'You are signed in as Eddie'
 	end
 
 	def sign_up(username = 'Eddie', email = 'eddie_andress@hotmail.com', password = '12345678', password_confirmation = '12345678')
 		visit '/'
-		click_link 'Sign up'
+		click_link 'SIGN UP'
 		within('#new-user') do
 			fill_in 'username', with: username
 			fill_in 'email', with: email

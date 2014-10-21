@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">  
+  <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">  
+  <title>Bookmark manager</title>
+</head>
+<body>
+
+<header>
+  <h1 id="page-title">Welcome to Bookmark Manager</h1>
+  <% if current_user %>
+    <h1>You are signed in as <%= current_user.username %></h1>
+    <form id="sign_out" method="post" action="/sessions/delete">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
+  <% else %>
+  <section id="sign-in-up">
+    <a href="/users/new" method="get"><button type="button">SIGN UP</button></a>
+    <form id="sign_in" action="sessions/new" method="post">
+      <input type="text" name="email" placeholder="email address">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit"  id="sign_in_submit" value="SIGN IN">
+    </form>
+  <% end %>
+</section>
+</header>
+
+<%= yield %>
+
+</body>
+
+</html>
