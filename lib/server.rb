@@ -62,6 +62,11 @@ set :partial_template_engine, :erb
     end
   end
 
+  get '/users/links' do
+    @links = Link.all(user_id: params["user_id"])
+    erb :homepage
+  end
+
   post "/sessions/new" do
     user = User.authenticate(params[:email], params[:password])
     if user

@@ -133,6 +133,16 @@ body {
 	z-index: 5;
 }
 
+#tags {
+
+}
+
 #tag {
 	text-decoration: none;
+}
+
+#posted-by {
+	position: relative;
+	top: 40%;
+	left: 40%;
 }

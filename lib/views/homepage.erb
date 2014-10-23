@@ -34,7 +34,10 @@
           </section>
 
           <section id="posted-by">
-            Posted by <%= User.get(link.user_id).username %>
+            <form action="/users/links" method="get">
+            Posted by <input type="submit" value="<%= User.get(link.user_id).username %>">
+                      <input type="hidden" name="user_id" value="<%= link.user_id %>">
+            </form>
           </section>
 
         </li> 

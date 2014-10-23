@@ -26,7 +26,18 @@ end
 
 	scenario 'and see who posted them' do 
 		visit '/'
-		expect(page).to have_content "Posted by Eddie"
+		expect(page).to have_content "Posted by"
+	end
+
+	scenario 'and see all the posts from a specific user by clicking on their name' do
+		visit '/'
+		click_button 'Sign out'
+		sign_up(username = 'Simon', email = 'simon_talboys@hotmail.com', password = '12345678', password_confirmation = '12345678')
+		add_link("www.bbc.co.uk", "BBC")
+		first("#link-container").click_button 'Eddie'
+		expect(page).to have_content "Picfair"
+		expect(page).to have_content "Google"
+		expect(page).not_to have_content "BBC"
 	end
 
 end
