@@ -1,4 +1,4 @@
-###Makers Academy Week 6: Bookmark Manager
+###[Makers Academy] Week 6: Bookmark Manager
 -----------------------------------------
 
 ####Specification:
@@ -43,3 +43,4 @@ $ rspec
 $ cd makers_academy_week6
 $ rackup
 ```
+[Makers Academy]: http://makersacademy.com
